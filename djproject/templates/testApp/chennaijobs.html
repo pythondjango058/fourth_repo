@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel='stylesheet' href='{% static 'css/demo.css' %}'>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Chennai jobs information</h1>
+    <img src='{% static 'images/chennai1.jpg' %}'>
+    <img src='{% static 'images/chennai2.jpg' %}'>
+    <img src='{% static 'images/chennai3.jpg' %}'>
+    {% if chennaijobs_list %}
+    <table>
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>phonenumber</th>
+      </thead>
+      {% for chennaijob in chennaijobs_list %}
+      <tr>
+        <td>{{chennaijob.date}}</td>
+        <td>{{chennaijob.company}}</td>
+        <td>{{chennaijob.title}}</td>
+        <td>{{chennaijob.eligibility}}</td>
+        <td>{{chennaijob.address}}</td>
+        <td>{{chennaijob.email}}</td>
+        <td>{{chennaijob.phonenumber}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>There is not found any chennai jobs</p>
+    {% endif %}
+  </body>
+</html>

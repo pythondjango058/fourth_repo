@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel='stylesheet' href='{% static 'css/demo.css' %}'>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Pune jobs information</h1>
+    <img src='{% static 'images/pune1.jpg' %}'>
+    <img src='{% static 'images/pune2.jpg' %}'>
+    <img src='{% static 'images/pune3.jpg' %}'>
+    {% if punejobs_list %}
+    <table>
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>phonenumber</th>
+      </thead>
+      {% for punejob in punejobs_list %}
+      <tr>
+        <td>{{punejobjob.date}}</td>
+        <td>{{punejob.company}}</td>
+        <td>{{punejob.title}}</td>
+        <td>{{punejob.eligibility}}</td>
+        <td>{{punejob.address}}</td>
+        <td>{{punejob.email}}</td>
+        <td>{{punejob.phonenumber}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>There is not found any pune jobs</p>
+    {% endif %}
+  </body>
+</html>

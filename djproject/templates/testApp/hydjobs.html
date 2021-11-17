@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel='stylesheet' href='{% static 'css/demo.css' %}'>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Hyderabad jobs information</h1>
+    <img src='{% static 'images/hyd1.jpg' %}'>
+    <img src='{% static 'images/hyd2.jpg' %}'>
+    <img src='{% static 'images/hyd3.jpg' %}'>
+    {% if hydjobs_list %}
+    <table>
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>phonenumber</th>
+      </thead>
+      {% for hydjob in hydjobs_list %}
+      <tr>
+        <td>{{hydjob.date}}</td>
+        <td>{{hydjob.company}}</td>
+        <td>{{hydjob.title}}</td>
+        <td>{{hydjob.eligibility}}</td>
+        <td>{{hydjob.address}}</td>
+        <td>{{hydjob.email}}</td>
+        <td>{{hydjob.phonenumber}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>There is not found any tables</p>
+    {% endif %}
+  </body>
+</html>
